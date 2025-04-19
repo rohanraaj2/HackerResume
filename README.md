@@ -8,7 +8,7 @@ Alternatively, if you'd like you can use a site like [OverLeaf](https://overleaf
 ## Usage
 To generate a PDF from this LaTeX code, navigate to this folder in a terminal and run:
 
-    xelatex resume.tex
+    pdflatex resume.tex
 
 ### And remember...
 

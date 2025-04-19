@@ -1,185 +1,235 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This is a modified ONE COLUMN version of
-% the following template:
-%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.1 (30/4/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \documentclass[]{deedy-resume-openfont}
-  
-      \begin{document}
-      
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
-  %     Profile
-  %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-\namesection{Rohan} {Raj}\infoline{\href{mailto:rohanraaj020@gmail.com}{rohanraaj020@gmail.com} | +971583032118 | Dubai, United Arab Emirates}\underlineheader{}
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+    \usepackage{longtable}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+    \vspace*{-40pt}
+
+    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%     Education
+%     Profile
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Education}
-\raggedright
+  \vspace*{-2pt}
+  \begin{center}
+    {\Huge \scshape {Rohan Raj}}\\
+    \vspace*{2pt}
+    \ {Software Developer}\\
+    \vspace*{2pt}
+    \href{mailto:rohanraaj020@gmail.com}{rohanraaj020@gmail.com} | \href{tel:(49) 15783504210}{(49) 15783504210} | Ingolstadt, Germany\\
+    \vspace*{2pt}
+    \textbf{\href{https://github.com/rohanraaj2}{GitHub | }}\textbf{\href{https://www.linkedin.com/in/rohanraaj2}{Linkedin}}\\
+  \end{center}
 
-    \runsubsection{Habib University}\hspace*{\fill}  \location{August 2021 - July 2025}\\
-    \descript{Bachelors Computer Science}\hspace*{\fill}\location{Karachi, Pakistan}\\
-    CGPA: 3.21\\
-    \sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %     Education
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \header{Education}
+      \vspace{2mm}
+      \textbf{Technische Hochscule}\hfill Ingolstadt, Germany\\
+Computer Science and Artificial Intelligence \hfill October 2023 - Present\\
+
+\vspace{2mm}
+      \textbf{Habib University}\hfill Karachi, Pakistan\\
+Computer Science \hfill August 2021 - May 2025\\
+{\sl CGPA: 3.21}\\
+\vspace{2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %     Experience
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \header{Experience}
+      \vspace{2mm}
+
+      \textbf{fortiss}\textbf{ | Software Developer} \hfill Munich, Germany | April 2024 - April 2025\\
+          \vspace{-3mm}
+\begin{itemize} \itemsep -3pt
+\item  Developed energy management solutions for openEMS platform.
+\item  Optimized user interaction in web app using HTML and TypeScript by interactive navigation and data visualization widgets, CSV data extraction from dynamic graphs, and custom pop-up interfaces for real-time monitoring.
+\item  Built forecasting module using machine learning to predict energy consumption/solar generation, integrating in an interactive graph.
+\item  Designed device controller for smart solar box, enabling automated grid/solar power switching using real-time forecasts, Modbus protocol integration (Raspberry Pi deployment), remote monitoring and control of devices using RESTful APIs.
+\item  Led hardware setup, including lab equipment assembly.
+\end{itemize}
+      \textbf{TechnoHacks}\textbf{ | Python Developer} \hfill Nashik, India | October 2023 - November 2023\\
+          \vspace{-3mm}
+\begin{itemize} \itemsep -3pt
+\item  Implemented Python-based applications, enhancing functionality and user experience.
+\item  Collaborated with cross-functional teams to design and deploy web scrapers, automating data extraction and improving data collection efficiency.
+\item  Engaged in regular code reviews and team meetings, contributing to best practices and continuous improvement initiatives.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %     Skills
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Skills}
-\raggedright
-\begin{longtable}{p{5cm}p{13.5cm}}
-\descript{Programming Languages} & {\location{C++, Python, C\#, Verilog, HTML5, CSS, Visual Basic}} \\
-\descript{Tools / Platforms} & {\location{Visual Studio, Visual Studio Code, Github, Git, Xilinx Vivado, SQL Server Management Studio}} \\
-\descript{Databases} & {\location{SQL, MongoDB}} \\
-\end{longtable}
-\sectionsep
+  \header{Skills}
+  \vspace{2mm}
+  \begin{longtable}{p{4cm}p{12cm}}
+  Programming Languages: & Python, C++, C\#, Java, HTML, CSS, JavaScript, TypeScript, Verilog, Visual Basic, LaTex \\
+  Libraries/Frameworks: & Angular, React, Node.js, .NET, JavaFX, Tkinter, Firebase, Numpy, Pandas, Scikit-learn, OSGi, Apache, Modbus Protocol \\
+  Tools / Platforms: & Git, Github, Eclipse, Visual Studio, Visual Studio Code, Anaconda, CodeSandbox, Xilinx Vivado, Maven, Gradle, SQL Server Management Studio, Linux, Raspberry Pi, OpenEMS \\
+  Databases: & SQL, MongoDB, InfluxDB \\
+  \end{longtable}
+  \vspace{1mm}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     Projects
-%
+    %
+    %     Projects
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \header{Projects / Open-Source}
+      \vspace{2mm}
+      {\textbf{Car Dealership System}}\textbf{ | \href{https://github.com/rohanraaj2/Car-Dealership-System}{Link}}\hfill{\sl C\#, .NET, SQL}\\
+
+\vspace*{3mm}
+      {\textbf{Merkle Tree}}\textbf{ | \href{https://github.com/rohanraaj2/Merkle-Tree}{Link}}\hfill{\sl Python, Tkinter}\\
+
+\vspace*{3mm}
+      {\textbf{Google Drive Clone}}\textbf{ | \href{https://drive-clone-29079.web.app/}{Link}}\hfill{\sl HTML, CSS, Node.js, Firebase}\\
+
+\vspace*{3mm}
+      {\textbf{Soccer News Sample Page}}\textbf{ | \href{https://soccer-page-eaa38.web.app/}{Link}}\hfill{\sl HTML, CSS, Node.js, Firebase}\\
+
+\vspace*{3mm}
+      {\textbf{Periodic Table}}\textbf{ | \href{https://periodic-table-ecf7e.web.app/}{Link}}\hfill{\sl HTML, CSS, Node.js, Firebase}\\
+
+\vspace*{3mm}
+      {\textbf{pH Scale}}\textbf{ | \href{https://ph-scale-577b5.web.app/}{Link}}\hfill{\sl HTML, CSS, Node.js, Firebase}\\
+
+\vspace*{3mm}
+      {\textbf{Microsoft Logo}}\textbf{ | \href{https://logo-4cef4-51095.web.app/}{Link}}\hfill{\sl HTML, CSS, Node.js, Firebase}\\
+
+\vspace*{3mm}
+      {\textbf{Media Player}}\textbf{ | \href{https://github.com/rohanraaj2/Programming-2}{Link}}\hfill{\sl Java, JavaFX, Eclipse}\\
+
+\vspace*{3mm}
+      {\textbf{UNO Twist}}\textbf{ | \href{https://github.com/rohanraaj2/UNO-Twist}{Link}}\hfill{\sl C++, SDL}\\
+
+\vspace*{3mm}
+      {\textbf{Habib University Mania}}\textbf{ | \href{https://github.com/rohanraaj2/HU-Mania}{Link}}\hfill{\sl C++, SDL}\\
+
+\vspace*{3mm}
+      {\textbf{Ghost Busters}}\textbf{ | \href{https://github.com/rohanraaj2/Ghost-Busters}{Link}}\hfill{\sl C++}\\
+
+\vspace*{3mm}
+      {\textbf{Legend of SeePlusia}}\textbf{ | \href{https://github.com/rohanraaj2/Legend-of-SeePlusia}{Link}}\hfill{\sl C++}\\
+
+\vspace*{3mm}
+      {\textbf{Tic Tac Man}}\textbf{ | \href{https://github.com/rohanraaj2/Tic-Tac-Man}{Link}}\hfill{\sl Python}\\
+
+\vspace*{3mm}
+      {\textbf{RISC V Processor}}\textbf{ | \href{https://github.com/rohanraaj2/RISC-V-Processor}{Link}}\hfill{\sl Verilog, Xilinx Vivado}\\
+
+\vspace*{3mm}
+      {\textbf{Frog Hunter}}\textbf{ | \href{https://github.com/rohanraaj2/Frog-Hunter}{Link}}\hfill{\sl Verilog, Xilinx Vivado}\\
+
+\vspace*{3mm}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Projects / Open-Source}
-\raggedright
+      %
+      %     Certifications
+      %
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \header{Certifications}
+      \vspace{2mm}
+      • Google Drive Clone Using HTML and CSS - \textbf{\href{https://cert.devtown.in/verify/ZfQgMV}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
+\vspace*{1mm}
+      • Front-end Web Development - \textbf{\href{https://cert.devtown.in/verify/2cRv4D}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
+\vspace*{1mm}
+      • Java - \textbf{\href{https://www.udemy.com/certificate/UC-2b632316-fd78-47b0-af3a-ab4bf29c41c6/}{Udemy}}\\
+\vspace*{1mm}
+      • C\# - \textbf{\href{https://www.udemy.com/certificate/UC-74a53bdb-8ca9-467d-9dba-ba37d639299f/}{Udemy}}\\
+\vspace*{1mm}
+      • Introduction to AI - \textbf{\href{https://cert.devtown.in/verify/1xgEdU}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
+\vspace*{1mm}
+      • Build with AI - \textbf{\href{https://www.aicamp.ai/index/certificate/W202405100903rora}{AICamp}}\\
+\vspace*{1mm}
+      • BlockChain Evolution - \textbf{\href{https://certificate.givemycertificate.com/c/d0618275-fb03-4bb8-bee3-04b58fedb757}{Google Developers Student Club - DTU}}\\
+\vspace*{1mm}
+      • IT Essentials - \textbf{\href{https://www.credly.com/badges/11065f1c-e19b-471f-a32e-351552ea93ea/public\_url}{Cisco, Jawan Pakistan}}\\
+\vspace*{1mm}
+      • Member Badge - \textbf{\href{https://developers.google.com/profile/badges/community/gdsc/2023/member}{GDSC}}\\
+\vspace*{1mm}
+      • Computer Workplace - \textbf{\href{https://www.linkedin.com/in/rohanraaj2/details/certifications/1728504916868/single-media-viewer?type=DOCUMENT\&profileId=ACoAAAXBhjEB1wBZO3Eb5Nhljme8rY91vG10w5M\&lipi=urn\%3Ali\%3Apage\%3Ad\_flagship3\_profile\_view\_base\_certifications\_details\%3B7i06Op1FQLybklu9D8yAyQ\%3D\%3D}{Occupational Health and Safety BAD Gesundheitsvorsorge und Sicherheitstechnik GmbH}}\\
+\vspace*{1mm}
+      \vspace{2mm}
 
-    \runsubsection{\large{Google Drive Clone}}
-    \descript{| \href{https://github.com/rohanraaj2/Google-Drive-Clone}{Link}}\hfill \location{Firebase · HTML5 · Cascading Style Sheets (CSS) · Materialize CSS}\\
-    
-    \sectionsep
-  
 
-    \runsubsection{\large{Merkle Tree}}
-    \descript{| \href{https://github.com/rohanraaj2/Merkle-Tree}{Link}}\hfill \location{Python, Tkinter}\\
-    
-    \sectionsep
-  
 
-    \runsubsection{\large{Car Dealership System}}
-    \descript{| \href{https://github.com/rohanraaj2/Car-Dealership-System}{Link}}\hfill \location{C\#, SQL}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{Frog Hunter}}
-    \descript{| \href{https://github.com/rohanraaj2/Frog-Hunter}{Link}}\hfill \location{Verilog}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{UNO Twist}}
-    \descript{| \href{https://github.com/rohanraaj2/UNO-Twist}{Link}}\hfill \location{C++}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{Soccer News Sample Page}}
-    \descript{| \href{https://github.com/rohanraaj2/Soccer-Page}{Link}}\hfill \location{Firebase · HTML5 · Cascading Style Sheets (CSS)}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{RISC V Processor}}
-    \descript{| \href{https://github.com/rohanraaj2/RISC-V-Processor}{Link}}\hfill \location{Verilog}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{Microsoft Logo}}
-    \descript{| \href{https://github.com/rohanraaj2/Logos/tree/main/Microsoft}{Link}}\hfill \location{Firebase · HTML5 · Cascading Style Sheets (CSS)}\\
-    
-    \sectionsep
-  
-
-    \runsubsection{\large{Tic Tac Man}}
-    \descript{| \href{https://github.com/rohanraaj2/Tic-Tac-Man}{Link}}\hfill \location{Python}\\
-    
-    \sectionsep
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     Certifications
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Certifications}
-\vspace{4pt}
-\begin{tightemize}
-\item BlockChain Evolution - \descript{\href{https://certificate.givemycertificate.com/c/d0618275-fb03-4bb8-bee3-04b58fedb757}{Google Developers Student Club - DTU}}\\
-\item Google Drive Clone Using HTML and CSS - \descript{\href{https://cert.devtown.in/verify/ZfQgMV}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
-\item Front-end Web Development - \descript{\href{https://cert.devtown.in/verify/2cRv4D}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
-\item Introduction to AI - \descript{\href{https://cert.devtown.in/verify/1xgEdU}{Devtown, Google Developers Student Club KIIT, Microsoft Learn Student Ambassador}}\\
-\item IT Essentials - \descript{\href{https://www.credly.com/badges/11065f1c-e19b-471f-a32e-351552ea93ea/public\_url}{Cisco, Jawan Pakistan}}\\
-\end{tightemize}
-\vspace{4pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     Awards
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Honors \& Awards}
-\vspace{4pt}
-\begin{tightemize}
-\item 2A*, 5A and 1B in O levels\\
-\item 1A*, 1A and 2B in A levels\\
-\item Excellence Scholarship at Habib University\\
-\item 50\% Scholarship at Southshore College\\
-\item 1st position in English Program Language Speech Contest\\
-\item 1st position in Ideas Presentation Module in Rubik 2.0\\
-\item Best Delegate in The Beacon Public Speaking Festival\\
-\item Outstanding Diplomacy in Model United Nations IBA Karachi\\
-\item Special Mention in PaulMUN V\\
-\item Best Position Paper in JCMUN III\\
-\item Awarded in Recognition of Outstanding Achievement at Beaconhouse Trailblazers Ceremony\\
-\item Winner of Interhouse Football Tournament\\
-\item 3rd position in Flat 100m race in Annual Sports Gala\\
-\end{tightemize}
-      \ 
-      \end{document}
+    \ 
+    \end{document}
